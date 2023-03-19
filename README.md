@@ -62,13 +62,10 @@ layout_card.addStretch(1)
 layout_card.setSpacing(5)
  
 def show_result():
-    ''' показать панель ответов '''
     RadioGroupBox.hide()
     AnsGroupBox.show()
-    btn_OK.setText('Следующий вопрос')
  
 def show_question():
-    ''' показать панель вопросов '''
     RadioGroupBox.show()
     AnsGroupBox.hide()
     btn_OK.setText('Ответить')
@@ -82,8 +79,6 @@ def show_question():
 answers = [rbtn_1, rbtn_2, rbtn_3, rbtn_4]
  
 def ask(question, right_answer, wrong1, wrong2, wrong3):
-    ''' функция записывает значения вопроса и ответов в соответствующие виджеты,
-    при этом варианты ответов распределяются случайным образом'''
     shuffle(answers)
     answers[0].setText(right_answer)
     answers[1].setText(wrong1)
@@ -94,12 +89,10 @@ def ask(question, right_answer, wrong1, wrong2, wrong3):
     show_question()
  
 def show_correct(res):
-    ''' показать результат - установим переданный текст в надпись "результат" и покажем нужную панель '''
     lb_Result.setText(res)
     show_result()
  
 def check_answer():
-    ''' если выбран какой-то вариант ответа, то надо проверить и показать панель ответов'''
     if answers[0].isChecked():
         show_correct('Правильно!')
     else:
